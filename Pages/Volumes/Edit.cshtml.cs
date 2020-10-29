@@ -30,7 +30,7 @@ namespace MyScriptureJournal.Pages_Volumes
                 return NotFound();
             }
 
-            Volume = await _context.Volume.FirstOrDefaultAsync(m => m.ID == id);
+            Volume = await _context.Volume.FirstOrDefaultAsync(m => m.VolumeId == id);
 
             if (Volume == null)
             {
@@ -56,7 +56,7 @@ namespace MyScriptureJournal.Pages_Volumes
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!VolumeExists(Volume.ID))
+                if (!VolumeExists(Volume.VolumeId))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace MyScriptureJournal.Pages_Volumes
 
         private bool VolumeExists(int id)
         {
-            return _context.Volume.Any(e => e.ID == id);
+            return _context.Volume.Any(e => e.VolumeId == id);
         }
     }
 }

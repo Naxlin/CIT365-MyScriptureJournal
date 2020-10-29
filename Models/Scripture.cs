@@ -6,11 +6,11 @@ namespace MyScriptureJournal.Models
     public class Scripture
     {
         // Unique ID for the P_Key of the database
-        public int ID { get; set; }
+        public int ScriptureId { get; set; }
 
         // F_KEY for the Book of scripture e.g. 1 Nephi, etc.
         // [Required, Range(0, 150)] // Range bugged out when IDs generated in the 2000 range.
-        public int Book { get; set; }
+        public int BookId { get; set; }
 
         // Scripture chapter
         [Required, Range(1, 151)]
@@ -26,5 +26,8 @@ namespace MyScriptureJournal.Models
 
         // Date the Note was added, retrieved from system at data/time of note added.
         public DateTime Date { get; set; }
+
+        // Navigation properties:
+        public Book Book { get; set; }
     }
 }

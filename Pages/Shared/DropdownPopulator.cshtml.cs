@@ -16,7 +16,7 @@ namespace MyScriptureJournal.Pages
             if (table == "Volume")
             {
                 var query = from list in _context.Volume
-                                   orderby list.ID // Sort by name.
+                                   orderby list.VolumeId // Sort by name.
                                    select list;
                 Dropdown = new SelectList(query.AsNoTracking(),
                         "ID", "Name", selectedItem);
@@ -24,7 +24,7 @@ namespace MyScriptureJournal.Pages
             else if (table == "Book")
             {
                 var query = from list in _context.Book
-                                   orderby list.ID // Sort by name.
+                                   orderby list.BookId // Sort by name.
                                    select list;
                 Dropdown = new SelectList(query.AsNoTracking(),
                         "ID", "Name", selectedItem);

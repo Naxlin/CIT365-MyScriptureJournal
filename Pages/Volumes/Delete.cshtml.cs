@@ -29,7 +29,7 @@ namespace MyScriptureJournal.Pages_Volumes
                 return NotFound();
             }
 
-            Volume = await _context.Volume.FirstOrDefaultAsync(m => m.ID == id);
+            Volume = await _context.Volume.FirstOrDefaultAsync(m => m.VolumeId == id);
 
             if (Volume == null)
             {

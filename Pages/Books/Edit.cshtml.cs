@@ -31,7 +31,7 @@ namespace MyScriptureJournal.Pages_Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            Book = await _context.Book.FirstOrDefaultAsync(m => m.BookId == id);
 
             if (Book == null)
             {
@@ -58,7 +58,7 @@ namespace MyScriptureJournal.Pages_Books
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookExists(Book.ID))
+                if (!BookExists(Book.BookId))
                 {
                     return NotFound();
                 }
@@ -73,7 +73,7 @@ namespace MyScriptureJournal.Pages_Books
 
         private bool BookExists(int id)
         {
-            return _context.Book.Any(e => e.ID == id);
+            return _context.Book.Any(e => e.BookId == id);
         }
     }
 }

@@ -19,13 +19,13 @@ namespace MyScriptureJournal.Pages
             if (table == "Volume")
             {
                 VolName = _context.Volume.FindAsync(id);
-                Name = VolName.Result.Name;
+                Name = VolName.Result.VolumeName;
                 return Name;
             }
             else if (table == "Book")
             {
                 BookName = _context.Book.FindAsync(id);
-                Name = BookName.Result.Name;
+                Name = BookName.Result.BookName;
                 return Name;
             }
             else

@@ -31,7 +31,7 @@ namespace MyScriptureJournal.Pages_Scriptures
                 return NotFound();
             }
 
-            Scripture = await _context.Scripture.FirstOrDefaultAsync(m => m.ID == id);
+            Scripture = await _context.Scripture.FirstOrDefaultAsync(m => m.BookId == id);
 
             if (Scripture == null)
             {
@@ -58,7 +58,7 @@ namespace MyScriptureJournal.Pages_Scriptures
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ScriptureExists(Scripture.ID))
+                if (!ScriptureExists(Scripture.ScriptureId))
                 {
                     return NotFound();
                 }
@@ -73,7 +73,7 @@ namespace MyScriptureJournal.Pages_Scriptures
 
         private bool ScriptureExists(int id)
         {
-            return _context.Scripture.Any(e => e.ID == id);
+            return _context.Scripture.Any(e => e.ScriptureId == id);
         }
     }
 }
