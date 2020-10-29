@@ -21,8 +21,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Book.Volume" class="control-label"></label>
-                <input asp-for="Book.Volume" class="form-control" />
-                <span asp-validation-for="Book.Volume" class="text-danger"></span>
+                <select asp-for="Book.Volume" class="form-control"
+                        asp-items="@Model.Dropdown">
+                    <option value="">-- Select Volume --</option>
+                </select>
+                <span asp-validation-for="Book.Volume" class="text-danger" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

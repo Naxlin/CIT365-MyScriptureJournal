@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
+using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Scriptures
 {
-    public class CreateModel : PageModel
+    public class CreateModel : DropdownPopulator
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
 
@@ -21,6 +22,7 @@ namespace MyScriptureJournal.Pages_Scriptures
 
         public IActionResult OnGet()
         {
+            PopulateDropdown("Book", _context);
             return Page();
         }
 

@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
+using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Books
 {
-    public class CreateModel : PageModel
+    public class CreateModel : DropdownPopulator
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
 
@@ -21,6 +22,7 @@ namespace MyScriptureJournal.Pages_Books
 
         public IActionResult OnGet()
         {
+            PopulateDropdown("Volume", _context);
             return Page();
         }
 
@@ -38,7 +40,6 @@ namespace MyScriptureJournal.Pages_Books
 
             _context.Book.Add(Book);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

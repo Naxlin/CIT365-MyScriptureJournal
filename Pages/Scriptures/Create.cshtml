@@ -15,8 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Scripture.Book" class="control-label"></label>
-                <input asp-for="Scripture.Book" class="form-control" />
-                <span asp-validation-for="Scripture.Book" class="text-danger"></span>
+                <select asp-for="Scripture.Book" class="form-control"
+                        asp-items="@Model.Dropdown">
+                    <option value="">-- Select Book --</option>
+                </select>
+                <span asp-validation-for="Scripture.Book" class="text-danger" />
             </div>
             <div class="form-group">
                 <label asp-for="Scripture.Chapter" class="control-label"></label>

@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
+using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Scriptures
 {
-    public class IndexModel : PageModel
+    public class IndexModel : NameByIdPopulator
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
+        public List<string> BookNames;
 
         public IndexModel(MyScriptureJournal.Data.MyScriptureJournalContext context)
         {
@@ -24,6 +26,7 @@ namespace MyScriptureJournal.Pages_Scriptures
         public async Task OnGetAsync()
         {
             Scripture = await _context.Scripture.ToListAsync();
+            // BookNames.Add(ConvertIdToName("Book", item.Book, _context));
         }
     }
 }

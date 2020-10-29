@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
+using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Scriptures
 {
-    public class EditModel : PageModel
+    public class EditModel : DropdownPopulator
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
 
@@ -36,6 +37,7 @@ namespace MyScriptureJournal.Pages_Scriptures
             {
                 return NotFound();
             }
+            PopulateDropdown("Book", _context);
             return Page();
         }
 

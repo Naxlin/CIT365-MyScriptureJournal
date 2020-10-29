@@ -9,7 +9,7 @@ namespace MyScriptureJournal.Models
         public int ID { get; set; }
 
         // F_KEY for the Book of scripture e.g. 1 Nephi, etc.
-        [Required, Range(0, 90)]
+        // [Required, Range(0, 150)] // Range bugged out when IDs generated in the 2000 range.
         public int Book { get; set; }
 
         // Scripture chapter

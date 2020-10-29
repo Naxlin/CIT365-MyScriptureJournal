@@ -13,7 +13,7 @@ namespace MyScriptureJournal.Models
         public string Name { get; set; }
 
         // Scripture Volume F_KEY e.g. Old or New Testament, Book of Mormon, etc. 
-        [Required, Range(0, 4)]
+        [Required, Range(1, 5)]
         public int Volume { get; set; }
     }
 }
