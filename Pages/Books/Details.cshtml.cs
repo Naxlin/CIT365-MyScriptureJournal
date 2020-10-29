@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages_Book
+namespace MyScriptureJournal.Pages_Books
 {
     public class DetailsModel : PageModel
     {

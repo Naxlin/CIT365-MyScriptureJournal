@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages_Volume
+namespace MyScriptureJournal.Pages_Volumes
 {
     public class CreateModel : PageModel
     {

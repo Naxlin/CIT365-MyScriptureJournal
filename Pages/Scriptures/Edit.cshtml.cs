@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MyScriptureJournal.Data;
 using MyScriptureJournal.Models;
 
-namespace MyScriptureJournal.Pages_Scripture
+namespace MyScriptureJournal.Pages_Scriptures
 {
     public class EditModel : PageModel
     {
