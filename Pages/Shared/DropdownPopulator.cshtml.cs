@@ -19,7 +19,7 @@ namespace MyScriptureJournal.Pages
                                    orderby list.VolumeId // Sort by name.
                                    select list;
                 Dropdown = new SelectList(query.AsNoTracking(),
-                        "ID", "Name", selectedItem);
+                        "VolumeId", "VolumeName", selectedItem);
             }
             else if (table == "Book")
             {
@@ -27,7 +27,7 @@ namespace MyScriptureJournal.Pages
                                    orderby list.BookId // Sort by name.
                                    select list;
                 Dropdown = new SelectList(query.AsNoTracking(),
-                        "ID", "Name", selectedItem);
+                        "BookId", "BookName", selectedItem);
             }
             else
             {
