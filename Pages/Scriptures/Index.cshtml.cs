@@ -33,8 +33,8 @@ namespace MyScriptureJournal.Pages_Scriptures
         public async Task OnGetAsync(string sortOrder, string searchString)
         {
             // Appending values to sort & filter
-            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
-            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            DateSort = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            BookSort = sortOrder == "Book" ? "book_desc" : "Book";
             CurrentFilter = searchString;
 
             IQueryable<Scripture> ScriptureIQ = from s in _context.Scripture select s;
@@ -50,14 +50,14 @@ namespace MyScriptureJournal.Pages_Scriptures
                 case "book_desc":
                     ScriptureIQ = ScriptureIQ.OrderByDescending(s => s.Book.BookName);
                     break;
-                case "Date":
-                    ScriptureIQ = ScriptureIQ.OrderBy(s => s.Date);
+                case "Book":
+                    ScriptureIQ = ScriptureIQ.OrderBy(s => s.Book.BookName);
                     break;
                 case "date_desc":
                     ScriptureIQ = ScriptureIQ.OrderByDescending(s => s.Date);
                     break;
                 default:
-                    ScriptureIQ = ScriptureIQ.OrderBy(s => s.Book.BookName);
+                    ScriptureIQ = ScriptureIQ.OrderBy(s => s.Date);
                     break;
             }
 
