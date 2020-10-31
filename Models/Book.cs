@@ -8,7 +8,7 @@ namespace MyScriptureJournal.Models
         // Unique ID for the P_Key of the database
         public int BookId { get; set; }
 
-        // String for the Book of scripture e.g. 1 Nephi (will be changing this to dropdown)
+        // String for the Book of scripture e.g. 1
         [Required, StringLength(60, MinimumLength = 3), Display(Name = "Book")]
         public string BookName { get; set; }
 

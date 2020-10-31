@@ -26,7 +26,8 @@ namespace MyScriptureJournal.Pages_Scriptures
         public async Task OnGetAsync()
         {
             Scripture = await _context.Scripture
-                // .Include(s => s.Book.Volume)
+                .Include(s => s.Book)
+                .Include(s => s.Book.Volume)
                 .ToListAsync();
         }
     }

@@ -12,10 +12,16 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Scripture.Book)
+            @Html.DisplayNameFor(model => model.Scripture.Book.Volume.VolumeName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Scripture.Book)
+            @Html.DisplayFor(model => model.Scripture.Book.Volume.VolumeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.Book.BookName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.Book.BookName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Scripture.Chapter)
