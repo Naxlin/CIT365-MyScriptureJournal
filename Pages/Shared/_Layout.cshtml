@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - My Scripture Journal</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link href='https://fonts.googleapis.com/css?family=Felipa' rel='stylesheet'>
+<link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 site-bgcolor">
+            <div class="container site-color">
                 <a class="navbar-brand" asp-area="" asp-page="/Scriptures/Index">My Scripture Journal</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                         @* The following code was in the button above, but produced an error in the html validator *@
@@ -20,19 +21,19 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item @((string)ViewData["active"] == "Home" ? "site-active" : "")">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @((string)ViewData["active"] == "Scriptures" ? "site-active" : "")">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Scriptures/Index">Scriptures</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @((string)ViewData["active"] == "Books" ? "site-active" : "")">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Books/Index">Books</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @((string)ViewData["active"] == "Volumes" ? "site-active" : "")">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Volumes/Index">Volumes</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @((string)ViewData["active"] == "Privacy" ? "site-active" : "")">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                     </ul>
@@ -46,9 +47,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - MyScriptureJournal - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer class="border-top footer text-muted site-bgcolor">
+        <div class="container site-color">
+            &copy; @DateTime.Now.Year - My Scripture Journal - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

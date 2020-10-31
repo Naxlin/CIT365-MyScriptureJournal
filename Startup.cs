@@ -57,5 +57,10 @@ namespace MyScriptureJournal
                 endpoints.MapRazorPages();
             });
         }
+
+        public string getActive(string route)
+        {
+            return "active";
+        }
     }
 }
