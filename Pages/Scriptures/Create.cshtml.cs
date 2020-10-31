@@ -22,6 +22,7 @@ namespace MyScriptureJournal.Pages_Scriptures
 
         public IActionResult OnGet()
         {
+            ViewData["VolumeList"] = new SelectList(_context.Set<Volume>(), "VolumeId", "VolumeName");
             ViewData["BookList"] = new SelectList(_context.Set<Book>(), "BookId", "BookName");
             return Page();
         }
@@ -33,10 +34,12 @@ namespace MyScriptureJournal.Pages_Scriptures
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            // if (!ModelState.IsValid)
+            // {
+            //     return Page();
+            // }
+            
+            Scripture.Date = DateTime.Now;
 
             _context.Scripture.Add(Scripture);
             await _context.SaveChangesAsync();
