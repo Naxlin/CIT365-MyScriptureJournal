@@ -14,28 +14,32 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Scripture[0].Date)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Scriptures[0].Date)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Scripture[0].Book.Volume)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Book.Volume.VolumeName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Scripture[0].Book)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
+                    @Html.DisplayNameFor(model => model.Scriptures[0].Book.BookName)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Scripture[0].Chapter)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Chapter)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Scripture[0].Verse)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Verse)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Scripture[0].Note)
+                @Html.DisplayNameFor(model => model.Scriptures[0].Note)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Scripture) {
+@foreach (var item in Model.Scriptures) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)

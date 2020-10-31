@@ -14,6 +14,12 @@ namespace MyScriptureJournal.Pages_Scriptures
     public class IndexModel : PageModel
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
+
+        // Initializing sort variables:
+        public string BookSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentSort { get; set; }
+
         public List<string> BookNames;
 
         public IndexModel(MyScriptureJournal.Data.MyScriptureJournalContext context)
@@ -21,13 +27,35 @@ namespace MyScriptureJournal.Pages_Scriptures
             _context = context;
         }
 
-        public IList<Scripture> Scripture { get;set; }
+        public IList<Scripture> Scriptures { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
-            Scripture = await _context.Scripture
+            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
+            IQueryable<Scripture> ScriptureIQ = from s in _context.Scripture select s;
+
+            switch (sortOrder)
+            {
+                case "book_desc":
+                    ScriptureIQ = ScriptureIQ.OrderByDescending(s => s.Book.BookName);
+                    break;
+                case "Date":
+                    ScriptureIQ = ScriptureIQ.OrderBy(s => s.Date);
+                    break;
+                case "date_desc":
+                    ScriptureIQ = ScriptureIQ.OrderByDescending(s => s.Date);
+                    break;
+                default:
+                    ScriptureIQ = ScriptureIQ.OrderBy(s => s.Book.BookName);
+                    break;
+            }
+
+            Scriptures = await ScriptureIQ
                 .Include(s => s.Book)
                 .Include(s => s.Book.Volume)
+                .AsNoTracking()
                 .ToListAsync();
         }
     }
