@@ -22,7 +22,6 @@ namespace MyScriptureJournal.Pages_Books
 
         public IActionResult OnGet()
         {
-            // PopulateDropdown("Volume", _context);
             ViewData["VolumeList"] = new SelectList(_context.Set<Volume>(), "VolumeId", "VolumeName");
 
             return Page();
