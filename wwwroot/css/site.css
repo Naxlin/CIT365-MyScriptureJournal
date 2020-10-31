@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 * {
   font-family: "Felipa";
+  font-size: 18px;
 }
 
 a.navbar-brand {
@@ -80,9 +81,31 @@ body {
   background-color: #9cb5b8;
 }
 
+.site-button {
+  border: .25px solid black;
+  margin: -5px;
+  width: 65px;
+}
+
 .site-color {
   color: black;
   font-weight: bold;
+}
+
+.site-date-col {
+  width: 120px;
+}
+
+.site-left {
+  float: left;
+}
+
+.site-center-v {
+  vertical-align: bottom;
+}
+
+.site-right {
+  float: right;
 }
 
 /* Increased precidence */

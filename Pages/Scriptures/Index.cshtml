@@ -6,26 +6,26 @@
     ViewData["active"] = "Scriptures";
 }
 
-<h1>Index</h1>
+<h1>Scripture Journal List</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Find by name:
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
-        </p>
-    </div>
-</form>
+<div class="site-bgcolor site-center-v">
+    <a class="btn btn-success site-left" asp-page="Create">Create New</a>
+    <form class="site-right" asp-page="./Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Find by name:
+                <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+                <input type="submit" value="Search" class="btn btn-primary" /> |
+                <a class="btn btn-secondary" asp-page="./Index">Back to full List</a>
+            </p>
+        </div>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+            <th class="site-date-col">
+                <a class="btn btn-secondary site-button" asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
                     @Html.DisplayNameFor(model => model.Scriptures[0].Date)
                 </a>
             </th>
@@ -33,7 +33,7 @@
                 @Html.DisplayNameFor(model => model.Scriptures[0].Book.Volume.VolumeName)
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
+                <a class="btn btn-secondary site-button" asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
                     @Html.DisplayNameFor(model => model.Scriptures[0].Book.BookName)
                 </a>
             </th>
@@ -71,9 +71,9 @@
                 @Html.DisplayFor(modelItem => item.Note)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ScriptureId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ScriptureId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ScriptureId">Delete</a>
+                <p><a asp-page="./Edit" asp-route-id="@item.ScriptureId"><button class="btn btn-warning site-button">Edit</button></a></p>
+                <p><a asp-page="./Details" asp-route-id="@item.ScriptureId"><button class="btn btn-info site-button">Details</button></a></p>
+                <p><a asp-page="./Delete" asp-route-id="@item.ScriptureId"><button class="btn btn-danger site-button">Delete</button></a></p>
             </td>
         </tr>
 }
