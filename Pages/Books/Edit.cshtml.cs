@@ -12,7 +12,7 @@ using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Books
 {
-    public class EditModel : DropdownPopulator
+    public class EditModel : PageModel
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
 

@@ -12,7 +12,7 @@ using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Scriptures
 {
-    public class EditModel : DropdownPopulator
+    public class EditModel : PageModel
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
 
@@ -37,7 +37,8 @@ namespace MyScriptureJournal.Pages_Scriptures
             {
                 return NotFound();
             }
-            PopulateDropdown("Book", _context);
+            
+            ViewData["BookList"] = new SelectList(_context.Set<Book>(), "BookId", "BookName");
             return Page();
         }
 

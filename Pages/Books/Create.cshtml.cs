@@ -11,7 +11,7 @@ using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Books
 {
-    public class CreateModel : DropdownPopulator
+    public class CreateModel : PageModel
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
 
@@ -23,7 +23,6 @@ namespace MyScriptureJournal.Pages_Books
         public IActionResult OnGet()
         {
             ViewData["VolumeList"] = new SelectList(_context.Set<Volume>(), "VolumeId", "VolumeName");
-
             return Page();
         }
 

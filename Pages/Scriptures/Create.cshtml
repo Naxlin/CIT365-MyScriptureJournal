@@ -14,12 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Scripture.Book" class="control-label"></label>
-                <select asp-for="Scripture.Book" class="form-control"
-                        asp-items="@Model.Dropdown">
+                <label asp-for="Scripture.BookId" class="control-label"></label>
+                <select asp-for="Scripture.BookId" class="form-control" asp-items="ViewBag.BookList">
                     <option value="">-- Select Book --</option>
                 </select>
-                <span asp-validation-for="Scripture.Book" class="text-danger" />
+                <span asp-validation-for="Scripture.BookId" class="text-danger" />
             </div>
             <div class="form-group">
                 <label asp-for="Scripture.Chapter" class="control-label"></label>

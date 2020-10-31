@@ -11,7 +11,7 @@ using MyScriptureJournal.Pages;
 
 namespace MyScriptureJournal.Pages_Scriptures
 {
-    public class IndexModel : NameByIdPopulator
+    public class IndexModel : PageModel
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
         public List<string> BookNames;
@@ -26,7 +26,6 @@ namespace MyScriptureJournal.Pages_Scriptures
         public async Task OnGetAsync()
         {
             Scripture = await _context.Scripture.ToListAsync();
-            // BookNames.Add(ConvertIdToName("Book", item.Book, _context));
         }
     }
 }
